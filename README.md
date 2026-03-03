@@ -5,7 +5,7 @@ The script searches gene names and groups them into functional categories. Resul
 
 
   Input Requirements
-  Your dataset must be in .xlsx or .csv format and contain a specific column (in the first row) named exactly: 'Gene'. You can change the name to your preferences
+  Your dataset must be in .xlsx or .csv format and contain a specific column (in the first row) named exactly: 'Gene'. You can change the name to your preferences.
 
 * (line 8) file_path = r"input path" - paste between quotes the path to your file (format should be like in the example)
 Important: be sure that the first row of your file has "Gene" - name of the columns. In case your column of interest has a different name, you can change this line: gene_column = "Gene" by pasting the name of your column between quotes
