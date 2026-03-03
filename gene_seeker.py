@@ -3,8 +3,9 @@ import os
 
 
 # Loading excel/csv files
-file_path = r"C:\Users\semenovykh\Desktop\databases\NIHMS1633742-supplement-Supp_Table_2.csv"  # remove the word path in quotes and paste a path in the file explorer to your file
+file_path = r"input path"  # Paste a path in the file explorer to your file
 
+# Make sure you installed openpyxl to open xlsx
 if file_path.endswith(".xlsx"):
     df = pd.read_excel(file_path, engine="openpyxl")
 elif file_path.endswith(".csv"):
@@ -17,7 +18,7 @@ df.columns = [c.strip() for c in df.columns]
 
 print("Columns detected:", df.columns.tolist())
 
-# Check existence of "Gene" column in the file
+# Check the existence of the "Gene" column in the file. You can change it based on your needs.
 
 gene_column = "Gene"  # be sure the column with list of genes has exactly this name
 
@@ -26,7 +27,7 @@ if gene_column not in df.columns:
 
 df[gene_column] = df[gene_column].astype(str)
 
-# Define the category and exact genes we are looking for
+# Define the category and exact genes we are looking for (like here in the example)
 
 gene_categories = {
     "elongation_factors": [
@@ -61,7 +62,7 @@ def find_genes_by_category(df, gene_column, patterns):
 # Extract genes per category
 results = {}
 
-output_path = r"C:\Users\semenovykh\Desktop\databases\gene_category_results.xlsx"
+output_path = r"output path"
 with pd.ExcelWriter(output_path) as writer:
     for category, patterns in gene_categories.items():
         matches = find_genes_by_category(df, gene_column, patterns)
@@ -73,4 +74,5 @@ with pd.ExcelWriter(output_path) as writer:
         if len(matches) > 0:
             matches.to_excel(writer, sheet_name=category, index=False)
 
-print("All results saved to gene_category_results.xlsx")
+print("All results were succesfully saved")
+
