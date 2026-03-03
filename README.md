@@ -4,7 +4,7 @@ Gene Seeker is a Python script for identifying and extracting gene subsets from 
 The script searches gene names and groups them into functional categories. Results are exported into a multi-sheet Excel file for further analysis.
 
 
-* Input Requirements
+Input Requirements
 Your dataset must:
 - Be in .xlsx or .csv format
 - Contain a specific column (in the first row) named exactly: 'Gene'. You can change the name to your preferences
